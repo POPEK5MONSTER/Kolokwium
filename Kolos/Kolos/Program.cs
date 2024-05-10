@@ -1,3 +1,4 @@
+using Kolos.Repository;
 using Microsoft.OpenApi.Writers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-//builder.Services.AddScoped<,>;
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
